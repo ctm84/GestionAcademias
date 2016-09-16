@@ -1,0 +1,43 @@
+alumnos (id, nombre, apellido1, apellido2, telefono, correo, fregistro, cuota, activo, observaciones)
+PK:{id}
+
+cursos (id, nombre, observaciones)
+PK:{id}
+
+alumnosmatriculacursos (idalumno, idcurso)
+PK:{idalumno, idcurso}
+FK:{idalumno} -> alumno
+FK:{idcurso} -> curso
+
+eventos (id, nombre, importe, finicio, ffin, observaciones)
+PK:{id}
+
+alumnosapuntaeventos (idalumno, idevento, pagado)
+PK:{idalumno, idevento}
+FK:{idalumno} -> alumno
+FK:{idevento} -> evento
+
+grupos (id, dia, hora, observaciones)
+PK:{id}
+
+alumnospertenecegrupos (idalumno, idgrupo)
+PK:{idalumno,idgrupo}
+FK:{idalumno} -> alumno
+FK:{Idgrupo} -> grupo
+
+mensualidades (id, mes, importe, fpago, alumno, curso, observaciones)
+PK:{id}
+FK:{alumno} -> alumno
+FK:{curso} -> curso
+NNV: {alumno}
+NNV: {curso}
+
+controlpagos (id, alumno, curso, observaciones, septiembre, octubre, noviembre, etc)
+PK:{id}
+FK:{alumno} -> alumno
+FK:{curso} -> curso
+NNV: {alumno}
+NNV: {curso}
+
+
+
